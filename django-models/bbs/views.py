@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def article_list(request):
+    context = {
+
+    }
+    return render(request, 'list', context = context)
