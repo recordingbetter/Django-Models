@@ -2,6 +2,11 @@
 {% block content %}
 <body>
     <div class="container">
+        <form action="{% url 'bbs:article_delete' pk=article.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger pull-right">DELETE</button>
+        </form>
+
         <a href="{% url 'bbs:list' %}" class="btn btn-primary pull-right">Back to List</a>
         <a href="{% url 'bbs:article_modify' pk=article.pk %}" class="btn btn-primary pull-right">Modify</a>
         <h3>{{ article.subtitle }}</h3>

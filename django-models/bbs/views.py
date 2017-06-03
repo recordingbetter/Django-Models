@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse
 from django.shortcuts import render, get_list_or_404, redirect
 
 from .models import Article, Title
@@ -75,3 +76,13 @@ def article_modify(request, pk):
         article.description2 = data['description2']
         article.save()
         return redirect('bbs:article_detail', pk = article.pk)
+
+
+def article_delete(request, pk):
+    if request.method == 'POST':
+        article = Article.objects.get(pk = pk)
+        article.delete()
+        return redirect('bbs:list')
+    else:
+        return HttpResponse('Method "GET" is not allowed.')
+
