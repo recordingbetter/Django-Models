@@ -2,6 +2,9 @@
 {% block content %}
 <body>
 <div class="container">
+    <a href="{% url 'bbs:article_add' %}" class="btn btn-primary pull-right">add</a>
+    <a href="{% url 'bbs:markdown' %}" class="btn btn-primary pull-right">markdown</a>
+
     <h2>{{ title }}</h2>
     {% for article in latest_article_list %}
         <h3><a href="{% url 'bbs:article_detail' pk=article.pk %}">{{ article.subtitle }}</a></h3>
