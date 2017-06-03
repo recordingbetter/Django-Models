@@ -1,0 +1,30 @@
+{% extends 'bbs/base.html' %}
+{% block content %}
+
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+
+            <label for="subtitle">제목</label>
+            <input class="form-control" type="text" name="subtitle" id="subtitle" placeholder="제목">
+            </div>
+{#            <select name="author" id="" class="form-control">#}
+{#                {% for user in User.objects.all() %}#}
+{#                <option value="{{ user.id }}">{{ user.username }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+            <h4>설명</h4>
+            <textarea class="form-control" name="description1" id="" cols="30" rows="10"></textarea>
+            <h4>Sample Code</h4>
+            <textarea class="form-control" name="examples" id="" cols="30" rows="10"></textarea>
+            <h4>Sample Code 설명</h4>
+            <textarea class="form-control" name="description2" id="" cols="30" rows="10"></textarea>
+            <button type="submit" class="btn btn-primary center-block">Submit</button>
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}
