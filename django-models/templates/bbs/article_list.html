@@ -1,26 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <title>Django</title>
-</head>
-
-<header>
-    <h1 class="">Django Introduction to Models</h1>
-
-</header>
+{% extends 'bbs/base.html' %}
+{% block content %}
 <body>
 <div class="container">
     <h1>{{ title }}</h1>
     {% for article in latest_article_list %}
-        <h3>{{ article.subtitle }}</h3>
-        <p class="lead">{{ article.description1|linebreaksbr }}</p>
+        <h3><a href="{% url 'bbs:article_detail' pk=article.pk %}">{{ article.subtitle }}</a></h3>
+        <p class="lead">{{ article.description1|linebreaksbr|truncatechars:70 }}</p>
     {% endfor %}
 </div>
 
 </body>
-</html>
+{% endblock %}

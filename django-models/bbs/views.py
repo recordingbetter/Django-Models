@@ -5,7 +5,7 @@ from .models import Article
 
 def article_list(request):
     latest_article_list = get_list_or_404(
-        Article.objects.all()
+        Article.objects.order_by('-created_date')
     )
     context = {
         'latest_article_list': latest_article_list,
