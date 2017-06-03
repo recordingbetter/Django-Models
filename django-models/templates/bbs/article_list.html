@@ -1,18 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <title>Django</title>
 </head>
+
+<header>
+    <h1 class="">Django Introduction to Models</h1>
+
+</header>
 <body>
-
+<div class="container">
+    <h1>{{ title }}</h1>
     {% for article in latest_article_list %}
-        <h2>{{ article.subtitle }}</h2>
-        <p>{{ article.description1|linebreaksbr }}</p>
+        <h3>{{ article.subtitle }}</h3>
+        <p class="lead">{{ article.description1|linebreaksbr }}</p>
     {% endfor %}
-
+</div>
 
 </body>
 </html>
