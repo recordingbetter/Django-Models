@@ -10,7 +10,7 @@
 
     {% for article in latest_article_list %}
         <h2>{{ article.subtitle }}</h2>
-        <p>{{ article.description1 }}</p>
+        <p>{{ article.description1|linebreaksbr }}</p>
     {% endfor %}
 
 

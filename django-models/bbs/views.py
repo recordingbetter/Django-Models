@@ -10,6 +10,6 @@ def article_list(request):
     context = {
         'latest_article_list': latest_article_list,
     }
-    return render(request, 'list', context = context)
+    return render(request, 'bbs/article_list.html', context = context)
 
 
