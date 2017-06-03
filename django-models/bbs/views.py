@@ -57,3 +57,21 @@ def article_markdown(request):
         'articles': articles
     }
     return render(request, 'bbs/article_markdown.html', context)
+
+
+def article_modify(request, pk):
+    article = Article.objects.get(pk = pk)
+    if request.method == 'GET':
+        context = {
+            'article': article,
+            'pk':pk
+        }
+        return render(request, 'bbs/article_modify.html', context)
+    elif request.method == 'POST':
+        data = request.POST
+        article.subtitle = data['subtitle']
+        article.description1 = data['description1']
+        article.examples = data['examples']
+        article.description2 = data['description2']
+        article.save()
+        return redirect('bbs:article_detail', pk = article.pk)

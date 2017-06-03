@@ -3,6 +3,7 @@
 <body>
     <div class="container">
         <a href="{% url 'bbs:list' %}" class="btn btn-primary pull-right">Back to List</a>
+        <a href="{% url 'bbs:article_modify' pk=article.pk %}" class="btn btn-primary pull-right">Modify</a>
         <h3>{{ article.subtitle }}</h3>
         <p>{{ article.description1|linebreaksbr }}</p>
         <pre>{{ article.examples|linebreaksbr }}</pre>

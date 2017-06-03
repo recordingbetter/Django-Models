@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', views.article_detail, name = 'article_detail'),
     url(r'^add/$', views.article_add, name = 'article_add'),
     url(r'^markdown/$', views.article_markdown, name = 'markdown'),
+    url(r'^(?P<pk>\d+)/modify/$', views.article_modify, name = "article_modify")
 ]

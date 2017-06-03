@@ -1,0 +1,34 @@
+{% extends 'bbs/base.html' %}
+{% block content %}
+
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="subtitle">제목</label>
+                <input class="form-control" type="text" name="subtitle" id="subtitle" placeholder="제목" value="{{ article.subtitle }}">
+            </div>
+
+            <div class="form-group">
+                <label for="description1">설명</label>
+                <textarea class="form-control" name="description1" id="description1" cols="30" rows="10">{{ article.description1 }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="examples">Sample Code</label>
+                <textarea class="form-control" name="examples" id="examples" cols="30" rows="10">{{ article.examples }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="description2">Sample Code 설명</label>
+                <textarea class="form-control" name="description2" id="description2" cols="30" rows="10">{{ article.description2 }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary center-block">Submit</button>
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}
