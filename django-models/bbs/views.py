@@ -13,3 +13,10 @@ def article_list(request):
     return render(request, 'bbs/article_list.html', context = context)
 
 
+def article_detail(request, pk):
+    article = Article.objects.get(pk=pk)
+    context = {
+        'article': article,
+        'pk': pk
+    }
+    return render(request, 'bbs/article_detail.html', context)
