@@ -1,21 +1,19 @@
 {% extends 'bbs/base.html' %}
 {% block content %}
 <body>
-<a href="{% url 'bbs:list' %}" class="btn btn-primary pull-right">Back to List</a>
+<div class="container">
+<div><a href="{% url 'bbs:list' %}" class="btn btn-primary pull-right">Back to List</a></div>
+<br><br>
+<pre>
     {% for article in articles %}
-    <div class="container">
+{#    <div class="container">#}
         <p>### {{ article.subtitle }}</p>
-        <br>
         <p>{{ article.description1|linebreaksbr }}  </p>
-        <br>
-        <p>```</p>
-        <p>{{ article.examples|linebreaksbr }}</p>
-        <p>```</p>
-        <br>
+<span>```</span>
+<p>{{ article.examples|linebreaksbr }}</p><span>```</span>
         <p>{{ article.description2|linebreaksbr }}  </p>
-        <br>
-
-    </div>
     {% endfor %}
+</pre>
+</div>
 </body>
 {% endblock %}
