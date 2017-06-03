@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, get_list_or_404, redirect
 
-from .models import Article
+from .models import Article, Title
 
 User = get_user_model()
 
@@ -12,6 +12,7 @@ def article_list(request):
     )
     context = {
         'latest_article_list': latest_article_list,
+        'title': Title.objects.first(),
     }
     return render(request, 'bbs/article_list.html', context = context)
 
@@ -48,3 +49,11 @@ def article_add(request):
         )
         article.save()
         return redirect('bbs:article_detail', pk = article.pk)
+
+
+def article_markdown(request):
+    articles = Article.objects.all()
+    context = {
+        'articles': articles
+    }
+    return render(request, 'bbs/article_markdown.html', context)
