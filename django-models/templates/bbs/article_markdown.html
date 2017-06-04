@@ -6,12 +6,18 @@
 <br><br>
 <pre>
     {% for article in articles %}
-{#    <div class="container">#}
+
         <p>### {{ article.subtitle }}</p>
+        {% if article.description1 %}
         <p>{{ article.description1|linebreaksbr }}  </p>
+        {% else %}{% endif %}
+        {% if article.examples %}
 <span>```</span>
 <p>{{ article.examples|linebreaksbr }}</p><span>```</span>
+        {% else %}{% endif %}
+        {% if article.description2 %}
         <p>{{ article.description2|linebreaksbr }}  </p>
+        {% else %}{% endif %}
     {% endfor %}
 </pre>
 </div>
