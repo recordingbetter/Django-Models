@@ -9,11 +9,16 @@
 
         <a href="{% url 'bbs:list' %}" class="btn btn-primary pull-right">Back to List</a>
         <a href="{% url 'bbs:article_modify' pk=article.pk %}" class="btn btn-primary pull-right">Modify</a>
-        <h3>{{ article.subtitle }}</h3>
-        <p>{{ article.description1|linebreaksbr }}</p>
-        <pre>{{ article.examples|linebreaksbr }}</pre>
-        <p>{{ article.description2|linebreaksbr }}</p>
-
+            <h3>{{ article.subtitle }}</h3>
+        {% if article.description1 %}
+            <p>{{ article.description1|linebreaksbr }}</p>
+        {% else %}{% endif %}
+        {% if article.examples %}
+            <pre>{{ article.examples|linebreaksbr }}</pre>
+        {% else %}{% endif %}
+        {% if article.description2 %}
+            <p>{{ article.description2|linebreaksbr }}</p>
+        {% else %}{% endif %}
     </div>
 </body>
 {% endblock %}

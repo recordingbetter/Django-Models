@@ -8,7 +8,7 @@
     <h2>{{ title }}</h2>
     {% for article in latest_article_list %}
         <h3><a href="{% url 'bbs:article_detail' pk=article.pk %}">{{ article.subtitle }}</a></h3>
-        <p class="lead">{{ article.description1|linebreaksbr|truncatechars:70 }}</p>
+        <p class="lead">{{ article.description1|truncatechars:70 }}</p>
     {% endfor %}
 </div>
 
